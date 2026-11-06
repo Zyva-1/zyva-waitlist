@@ -13,8 +13,7 @@ const P = process.env.NEXT_PUBLIC_WAITLIST_THEME === 'gold' ? PALETTES.gold : PA
 
 const SOCIAL = {
   x: process.env.NEXT_PUBLIC_SOCIAL_X || '#',
-  facebook: process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || '#',
-  instagram: process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || '#',
+  telegram: process.env.NEXT_PUBLIC_SOCIAL_TELEGRAM || '#',
 };
 
 type Stage = 'email' | 'done';
@@ -117,8 +116,7 @@ export function WaitlistPage() {
 
         <ul className="wl-social" aria-label="Social links">
           <li><a href={SOCIAL.x} target="_blank" rel="noreferrer" aria-label="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z" /></svg></a></li>
-          <li><a href={SOCIAL.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.9c0-.7.2-1.1 1.2-1.1H17V2.2c-.3 0-1.4-.2-2.6-.2C11.700 2 10 3.600 10 6.500v2H7v3.800h3V22h4v-9.700h2.800l.5-3.800z" /></svg></a></li>
-          <li><a href={SOCIAL.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3.500" y="3.500" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.200" cy="6.800" r=".8" fill="currentColor" /></svg></a></li>
+          <li><a href={SOCIAL.telegram} target="_blank" rel="noreferrer" aria-label="Telegram"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.5c-.2 1.1-.9 1.4-1.8.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.3 13 1.5 11.500c-1-.3-1-1 .2-1.500L20.400 2.800c.9-.3 1.600.2 1.500 1.500z"/></svg></a></li>
         </ul>
       </div>
 
