@@ -25,7 +25,6 @@ export function WaitlistPage() {
   const [stage, setStage] = useState<Stage>('email');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
-  const [position, setPosition] = useState<number | null>(null);
   const [existing, setExisting] = useState(false);
   useEffect(() => { try { setRef(new URLSearchParams(location.search).get('ref') ?? ''); } catch { /* ignore */ } }, []);
   async function call(path: string, body: object) {
@@ -43,7 +42,7 @@ export function WaitlistPage() {
     try {
       const { ok, j } = await call('/api/waitlist', { email: clean, website, ref: ref || undefined });
       if (!ok) { setError(j.detail || 'Something went wrong. Please try again.'); return; }
-      setExisting(!!j.alreadyJoined); setPosition(j.position ?? null); setStage('done');
+      setExisting(!!j.alreadyJoined); setStage('done');
     } catch { setError('Network problem. Check your connection and try again.'); } finally { setBusy(false); }
   }
 
@@ -96,8 +95,8 @@ export function WaitlistPage() {
           {stage === 'done' ? (
             <div role="status" className="wl-done">
               <h2 id="wl-h">{existing ? "You're already on the list!" : "You're on the list!"}</h2>
-              <p>{position ? <>You&apos;re <b>#{position}</b>. </> : null}{existing ? <><b>{email.trim()}</b> is already registered, so there&apos;s nothing more to do. </> : ''}We&apos;ll let you know as soon as Zyva opens.</p>
-              {existing ? <p className="wl-links"><button type="button" onClick={() => { setStage('email'); setExisting(false); setEmail(''); setPosition(null); }}>Use a different email</button></p> : null}
+              <p>{existing ? <><b>{email.trim()}</b> is already registered, so there&apos;s nothing more to do. </> : ''}We&apos;ll let you know as soon as Zyva opens.</p>
+              {existing ? <p className="wl-links"><button type="button" onClick={() => { setStage('email'); setExisting(false); setEmail(''); }}>Use a different email</button></p> : null}
             </div>
           ) : (
             <>
